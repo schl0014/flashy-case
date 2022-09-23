@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/cards', getCards)
-// router.post('/appointment', setAppointment)
+router.post('/cards', setCards)
 
 router.get('/collection', getCollection)
 router.post('/collection', setCollection)
