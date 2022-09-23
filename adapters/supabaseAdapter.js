@@ -11,6 +11,47 @@ export async function getCardsFromSupabase(req, res, next) {
     // all data from te supabase appointment
 }
 
+export async function writeCardsToSupabase(appointment) {
+    const { data, error } = await supabase.from('cards').insert([appointment]);
+    console.log(data);
+    if (error) {
+        console.log(error)
+    }
+}
+
+export async function getPlayersFromSupabase(req, res, next) {
+    const { data, error } = await supabase.from('players').select('*')
+    if (error) console.error('query error', error);
+    else return data;
+    console.log('supa appointmet')
+    // all data from te supabase appointment
+}
+
+// Make a request
+export async function getCollectionsFromSupabase(req, res, next) {
+    const { data, error } = await supabase.from('collections').select('*')
+    if (error) console.error('query error', error);
+    else return data;
+    console.log('supa appointmet')
+    // all data from te supabase appointment
+}
+
+export async function writePlayersToSupabase(player) {
+    const { data, error } = await supabase.from('players').insert([player]);
+    console.log(data);
+    if (error) {
+        console.log(error)
+    }
+}
+
+export async function writeCollectionsToSupabase(collections) {
+    const { data, error } = await supabase.from('collections').insert([collections]);
+    console.log(data);
+    if (error) {
+        console.log(error)
+    }
+}
+
 export async function writeProgressToSupabase(progress) {
     const { data, error } = await supabase.from('progress').insert([progress]);
     console.log(data);
