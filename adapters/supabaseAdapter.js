@@ -11,8 +11,8 @@ export async function getCardsFromSupabase(req, res, next) {
     // all data from te supabase appointment
 }
 
-export async function writeAppointmentsToSupabas(appointment) {
-    const { data, error } = await supabase.from('appointments').insert([appointment]);
+export async function writeCardsToSupabase(appointment) {
+    const { data, error } = await supabase.from('cards').insert([appointment]);
     console.log(data);
     if (error) {
         console.log(error)
