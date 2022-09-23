@@ -2,8 +2,8 @@ import { getCardsFromSupabase, writeCardsToSupabase } from "../adapters/supabase
 
 export async function getCards(req, res, next) {
   console.log('wow appointment')
-  const getappontmentData = await getCardsFromSupabase()
-  res.json(getappontmentData)
+  const getCardData = await getCardsFromSupabase()
+  res.json(getCardData)
 
 }
 
