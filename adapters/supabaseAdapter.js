@@ -19,6 +19,14 @@ export async function writeCardsToSupabase(appointment) {
     }
 }
 
+export async function deleteCardsFromSupabase(id) {
+    const { data, error } = await supabase.from('cards').delete().match({"id": id});
+    console.log(data);
+    if (error) {
+        console.log(error)
+    }
+}
+
 export async function getPlayersFromSupabase(req, res, next) {
     const { data, error } = await supabase.from('players').select('*')
     if (error) console.error('query error', error);
