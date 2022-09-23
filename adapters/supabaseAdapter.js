@@ -11,8 +11,26 @@ export async function getCardsFromSupabase(req, res, next) {
     // all data from te supabase appointment
 }
 
-export async function writeAppointmentsToSupabas(appointment) {
+export async function writeAppointmentsToSupabase(appointment) {
     const { data, error } = await supabase.from('appointments').insert([appointment]);
+    console.log(data);
+    if (error) {
+        console.log(error)
+    }
+}
+
+
+    // Make a request
+export async function getCollectionsFromSupabase(req, res, next) {
+    const { data, error } = await supabase.from('collections').select('*')
+    if (error) console.error('query error', error);
+    else return data;
+    console.log('supa appointmet')
+    // all data from te supabase appointment
+}
+
+export async function writeCollectionsToSupabase(collections) {
+    const { data, error } = await supabase.from('collections').insert([collections]);
     console.log(data);
     if (error) {
         console.log(error)
