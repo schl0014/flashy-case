@@ -11,10 +11,16 @@ export async function getCardsFromSupabase(req, res, next) {
     // all data from te supabase appointment
 }
 
-export async function writeAppointmentsToSupabas(appointment) {
-    const { data, error } = await supabase.from('appointments').insert([appointment]);
+export async function writeProgressToSupabase(progress) {
+    const { data, error } = await supabase.from('progress').insert([progress]);
     console.log(data);
     if (error) {
         console.log(error)
     }
+}
+
+export async function getProgressFromSupabase(req, res, next) {
+    const { data, error } = await supabase.from('progress').select('*');
+    if (error) console.error('query error', error);
+    else return data;
 }
